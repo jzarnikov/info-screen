@@ -1,0 +1,11 @@
+{
+  "lines": [
+    {
+      "name": "U6",
+      "destination": "FLORIDSDORF",
+      "realTime": true,
+      "trafficJam": false,
+      "departures": [6, 14, 15, 16]
+    }
+  ]
+}

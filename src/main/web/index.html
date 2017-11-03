@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en" ng-app="infoScreenApp">
+<head>
+    <meta charset="utf-8">
+    <title>Info Screen</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <script src="js/lib/angular.js"></script>
+    <script src="js/controller.js"></script>
+</head>
+<body ng-controller="InfoScreenController">
+<div ng-if="isOebb()" class="tabContent">
+    <div class="frameWrapper">
+        <iframe ng-src="{{config.oebb}}" frameborder="0" scrolling="no" width="564" height="298" class="content contentIframe"></iframe>
+    </div>
+</div>
+<div ng-if="isWl()" class="tabContent">
+    <table class="content">
+        <tr ng-repeat="line in wlLines" ng-class-odd="'odd'" ng-class-even="'even'" ng-class="{ 'alert' : line.trafficJam}">
+            <td class="number">{{line.name}}</td>
+            <td>{{line.destination}}</td>
+            <td ng-repeat="departure in line.departures" class="number">{{departure}}</td>
+            <td colspan="{{config.wl.maxDepartures - line.departures.length}}" class="filler"></td>
+        </tr>
+
+    </table>
+</div>
+<div ng-if="isCbw()" class="tabContent">
+    <table class="content">
+        <tr ng-repeat="station in cbwStations" ng-class-odd="'odd'" ng-class-even="'even'" ng-class="{ 'alert' : !station.active}">
+            <td >{{station.name}}</td>
+            <td class="number" ng-class="{ 'alert' : station.freeBikes < 3}">{{station.freeBikes}}</td>
+            <td class="number" ng-class="{ 'alert' : station.freeBoxes < 3}">{{station.freeBoxes}}</td>
+        </tr>
+    </table>
+</div>
+<div ng-if="isWeather()" class="tabContent">
+    <div class="frameWrapper">
+        <iframe ng-src="{{config.weather}}" frameborder="0" scrolling="no" width="564" height="298" class="content contentIframe"></iframe>
+    </div>
+</div>
+
+<ul class="tabSwitcher">
+    <li ng-click="showOebb()" class="tabLink" ng-class="{'active': isOebb()}"><i class="fa fa-train" aria-hidden="true"></i></li>
+    <li ng-click="showWl()" class="tabLink" ng-class="{'active': isWl()}"><i class="fa fa-subway" aria-hidden="true"></i>/<i class="fa fa-bus" aria-hidden="true"></i></li>
+    <li ng-click="showCbw()" class="tabLink" ng-class="{'active': isCbw()}"><i class="fa fa-bicycle" aria-hidden="true"></i></li>
+    <li ng-click="showWeather()" class="tabLink" ng-class="{'active': isWeather()}"><i class="fa fa-sun-o" aria-hidden="true"></i>/<i class="fa fa-cloud" aria-hidden="true"></i></li>
+    <li ng-click="off()" class="tabLink off"><i class="fa fa-power-off" aria-hidden="true"></i></li>
+</ul>
+
+</body>
+</html>

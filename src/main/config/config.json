@@ -1,0 +1,11 @@
+{
+  "wl": {
+    "apiKey": "40RyMkT0ZD",
+    "rbl": [ 4114, 4905, 2200, 232 ],
+    "maxDepartures": 4
+
+  },
+  "oebb": "http://fahrplan.oebb.at/bin/stboard.exe/dn?L=vs_scotty.vs_liveticker&evaId=1290401&boardType=dep&productsFilter=1111110110111111&dirInput=&tickerID=dep&start=yes&eqstops=true&showJourneys=12&additionalTime=0",
+  "weather": "http://www.daswetter.com/getwid/af42468ae214418d048865f183224ca5",
+  "cbw": [ 106, 101, 502, 802]
+}

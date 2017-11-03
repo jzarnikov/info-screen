@@ -1,0 +1,84 @@
+.tabSwitcher {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    height: 40px;
+    overflow: hidden;
+    background-color: black;
+}
+
+.tabLink {
+    float: left;
+    width: 20%;
+    height: 40px;
+    text-align: center;
+    font-size: 1.5em;
+    background-color: #3a3a3a;
+    color: #d1d1d1;
+    padding: 7px 0 7px 0;
+}
+
+.tabLink.active {
+    background-color: #dcb002;
+    color: #3a3a3a;
+}
+
+.tabLink.off {
+    color: #dcb002;
+}
+
+.tabContent {
+    padding: 0;
+    border: 0;
+    margin: 0;
+    height: 280px;
+    background-color: black;
+}
+
+.tabContent.table {
+
+}
+
+.content {
+    padding: 0;
+    border: 0;
+    margin: 0;
+}
+
+table.content {
+    width: 100%;
+    font-family: monospace;
+    border-spacing: 0;
+    border-collapse: collapse;
+    color: white;
+}
+
+table.content tr.odd {
+    background-color: #1B2E4F;
+}
+table.content tr.even {
+    background-color: #193764;
+}
+
+table.content .alert {
+    color: #ff7a00;
+    font-weight: bold;
+}
+table.content td {
+    padding: 2px 5px 2px 5px;
+}
+table.content td.number {
+    text-align: right;
+    width: 20px;
+}
+
+table.content td.filler {
+    padding: 2px 0 2px 0;
+}
+
+body {
+    background-color: black;
+}

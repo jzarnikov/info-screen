@@ -1,0 +1,103 @@
+{
+  "data": {
+    "monitors": [
+      {
+        "locationStop": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              16.3686968653481,
+              48.2351861613698
+            ]
+          },
+          "properties": {
+            "name": "60201667",
+            "title": "Jägerstraße",
+            "municipality": "Wien",
+            "municipalityId": 90000,
+            "type": "stop",
+            "coordName": "WGS84",
+            "gate": "1",
+            "attributes": {
+              "rbl": 4641
+            }
+          }
+        },
+        "lines": [
+          {
+            "name": "U6",
+            "towards": "FLORIDSDORF",
+            "direction": "H",
+            "platform": "1",
+            "richtungsId": "1",
+            "barrierFree": true,
+            "realtimeSupported": true,
+            "trafficjam": false,
+            "departures": {
+              "departure": [
+                {
+                  "departureTime": {
+                    "timePlanned": "2016-05-08T08:30:40.000+0200",
+                    "timeReal": "2016-05-08T08:30:40.000+0200",
+                    "countdown": 6
+                  }
+                },
+                {
+                  "departureTime": {
+                    "timePlanned": "2016-05-08T08:38:40.000+0200",
+                    "timeReal": "2016-05-08T08:38:40.000+0200",
+                    "countdown": 14
+                  }
+                },
+                {
+                  "departureTime": {
+                    "timePlanned": "2016-05-08T08:38:40.000+0200",
+                    "timeReal": "2016-05-08T08:38:40.000+0200",
+                    "countdown": 15
+                  }
+                },
+                {
+                  "departureTime": {
+                    "timePlanned": "2016-05-08T08:38:40.000+0200",
+                    "timeReal": "2016-05-08T08:38:40.000+0200",
+                    "countdown": 16
+                  }
+                },
+                {
+                  "departureTime": {
+                    "timePlanned": "2016-05-08T08:38:40.000+0200",
+                    "timeReal": "2016-05-08T08:38:40.000+0200",
+                    "countdown": 17
+                  }
+                },
+                {
+                  "departureTime": {
+                    "timePlanned": "2016-05-08T08:38:40.000+0200",
+                    "timeReal": "2016-05-08T08:38:40.000+0200",
+                    "countdown": 18
+                  }
+                },
+                {
+                  "departureTime": {
+                    "timePlanned": "2016-05-08T08:38:40.000+0200",
+                    "timeReal": "2016-05-08T08:38:40.000+0200",
+                    "countdown": 19
+                  }
+                }
+              ]
+            },
+            "type": "ptMetro",
+            "lineId": 306
+          }
+        ],
+        "attributes": {}
+      }
+    ]
+  },
+  "message": {
+    "value": "OK",
+    "messageCode": 1,
+    "serverTime": "2016-05-08T08:24:42.707+0200"
+  }
+}
