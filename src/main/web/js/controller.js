@@ -4,59 +4,77 @@
 
 var infoScreenApp = angular.module('infoScreenApp', []);
 
-infoScreenApp.config(['$sceDelegateProvider', function($sceDelegateProvider) {
-  $sceDelegateProvider.resourceUrlWhitelist([
-    'self',
-    'http://fahrplan.oebb.at/bin/stboard.exe/**',
-    'http://www.daswetter.com/getwid/**'
-  ]);
+infoScreenApp.config(['$sceDelegateProvider', function ($sceDelegateProvider) {
+    $sceDelegateProvider.resourceUrlWhitelist([
+        'self',
+        'http://fahrplan.oebb.at/bin/stboard.exe/**',
+        'http://www.daswetter.com/getwid/**'
+    ]);
 }]);
 
-infoScreenApp.controller('InfoScreenController', ['$scope', '$http',
-  function($scope, $http) {
-    $http.get('config').success(function(data) {
-      $scope.config = data;
-      setInterval($scope.reloadData, 30000);
-    });
+infoScreenApp.controller('InfoScreenController', ['$scope', '$http', '$interval',
+    function ($scope, $http, $interval) {
+        $http.get('config').success(function (data) {
+            $scope.config = data;
+            $interval($scope.reloadData, 10000);
+        });
 
-    $scope.off = function () {
-      $http.get('off');
-    };
+        $scope.off = function () {
+            $http.get('off');
+        };
 
-    $scope.loadWlData = function () {
-      $http.get("wl").success(function(data) {
-        $scope.wlLines = data.lines;
-      });
-    };
-    $scope.loadCbwData = function () {
-      $http.get("cbw").success(function(data) {
-        $scope.cbwStations = data.stations;
-      })
-    };
+        $scope.loadWlData = function () {
+            $http.get("wl").success(function (data) {
+                $scope.wlLines = data.lines;
+            });
+        };
+        $scope.loadCbwData = function () {
+            $http.get("cbw").success(function (data) {
+                $scope.cbwStations = data.stations;
+            })
+        };
 
-    $scope.reloadData = function () {
-      if ($scope.isCbw()) {
-        $scope.loadCbwData();
-      } else if ($scope.isWl()) {
-        $scope.loadWlData();
-      }
-    };
+        $scope.reloadData = function () {
+            if ($scope.isCbw()) {
+                $scope.loadCbwData();
+            } else if ($scope.isWl()) {
+                $scope.loadWlData();
+            }
+        };
 
-    $scope.visibleTab = 'oebb';
+        $scope.setTime = function () {
+            $scope.time = moment().format('HH:mm:ss');
+        };
+        $interval($scope.setTime, 250);
 
-    $scope.isOebb = function () { return $scope.visibleTab == 'oebb'};
-    $scope.isWl = function () { return $scope.visibleTab == 'wl'};
-    $scope.isWeather= function () { return $scope.visibleTab == 'weather'};
-    $scope.isCbw= function () { return $scope.visibleTab == 'cbw'};
+        $scope.visibleTab = 'oebb';
+        $scope.time = '';
 
-    $scope.showOebb = function() { $scope.visibleTab = 'oebb'};
-    $scope.showWl = function() {
-      $scope.visibleTab = 'wl';
-      $scope.loadWlData();
-    };
-    $scope.showWeather = function () { $scope.visibleTab = 'weather' };
-    $scope.showCbw = function () {
-      $scope.visibleTab = 'cbw';
-      $scope.loadCbwData();
-    };
-  }]);
+        $scope.isOebb = function (index) {
+            return $scope.visibleTab == 'oebb' + index
+        };
+        $scope.isWl = function () {
+            return $scope.visibleTab == 'wl'
+        };
+        $scope.isWeather = function () {
+            return $scope.visibleTab == 'weather'
+        };
+        $scope.isCbw = function () {
+            return $scope.visibleTab == 'cbw'
+        };
+
+        $scope.showOebb = function (index) {
+            $scope.visibleTab = 'oebb' + index
+        };
+        $scope.showWl = function () {
+            $scope.visibleTab = 'wl';
+            $scope.loadWlData();
+        };
+        $scope.showWeather = function () {
+            $scope.visibleTab = 'weather'
+        };
+        $scope.showCbw = function () {
+            $scope.visibleTab = 'cbw';
+            $scope.loadCbwData();
+        };
+    }]);

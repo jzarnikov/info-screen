@@ -7,12 +7,13 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <script src="js/lib/angular.js"></script>
+    <script src="js/lib/moment.min.js"></script>
     <script src="js/controller.js"></script>
 </head>
 <body ng-controller="InfoScreenController">
-<div ng-if="isOebb()" class="tabContent">
-    <div class="frameWrapper">
-        <iframe ng-src="{{config.oebb}}" frameborder="0" scrolling="no" width="564" height="298" class="content contentIframe"></iframe>
+<div ng-if="config" class="tabContent">
+    <div class="frameWrapper" ng-repeat="oebbUrl in config.oebb" ng-if="isOebb($index)">
+        <iframe ng-src="{{oebbUrl}}" frameborder="0" scrolling="no" width="564" height="298" class="content contentIframe"></iframe>
     </div>
 </div>
 <div ng-if="isWl()" class="tabContent">
@@ -42,11 +43,15 @@
 </div>
 
 <ul class="tabSwitcher">
-    <li ng-click="showOebb()" class="tabLink" ng-class="{'active': isOebb()}"><i class="fa fa-train" aria-hidden="true"></i></li>
+    <li ng-click="showOebb($index)" class="tabLink" ng-class="{'active': isOebb($index)}"
+        ng-if="config" ng-repeat="oebbTab in config.oebb track by $index">
+        <i class="fa fa-train" aria-hidden="true"></i> {{$index+1}}
+    </li>
     <li ng-click="showWl()" class="tabLink" ng-class="{'active': isWl()}"><i class="fa fa-subway" aria-hidden="true"></i>/<i class="fa fa-bus" aria-hidden="true"></i></li>
     <li ng-click="showCbw()" class="tabLink" ng-class="{'active': isCbw()}"><i class="fa fa-bicycle" aria-hidden="true"></i></li>
     <li ng-click="showWeather()" class="tabLink" ng-class="{'active': isWeather()}"><i class="fa fa-sun-o" aria-hidden="true"></i>/<i class="fa fa-cloud" aria-hidden="true"></i></li>
     <li ng-click="off()" class="tabLink off"><i class="fa fa-power-off" aria-hidden="true"></i></li>
+    <li class="tabLink time">{{time}}</li>
 </ul>
 
 </body>

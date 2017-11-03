@@ -14,6 +14,6 @@ import org.springframework.context.annotation.Configuration;
 public class Launcher {
 
     public static void main(String[] args) {
-        ConfigurableApplicationContext applicationContext = SpringApplication.run(Launcher.class, args);
+        SpringApplication.run(Launcher.class, args);
     }
 }

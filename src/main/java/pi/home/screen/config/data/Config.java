@@ -7,7 +7,7 @@ public class Config {
 
     public WienerLinienConfig wl = new WienerLinienConfig();
 
-    public String oebb = "";
+    public List<String> oebb = new ArrayList<>();
 
     public String weather = "";
 
