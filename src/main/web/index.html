@@ -11,8 +11,8 @@
     <script src="js/controller.js"></script>
 </head>
 <body ng-controller="InfoScreenController">
-<div ng-if="config" class="tabContent">
-    <div class="frameWrapper" ng-repeat="oebbUrl in config.oebb" ng-if="isOebb($index)">
+<div class="tabContent" ng-repeat="oebbUrl in config.oebb" ng-if="isOebb($index)">
+    <div class="frameWrapper">
         <iframe ng-src="{{oebbUrl}}" frameborder="0" scrolling="no" width="564" height="298" class="content contentIframe"></iframe>
     </div>
 </div>

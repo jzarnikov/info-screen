@@ -12,7 +12,7 @@
 
 .tabLink {
     float: left;
-    width: 80px;
+    width: 62px;
     height: 40px;
     text-align: center;
     font-size: 1.5em;
@@ -34,6 +34,9 @@
 .tabLink.time {
     float: right;
     font-family: monospace;
+    width: 100px;
+    font-size: 1.3em;
+    padding: 10px 0 10px 0;
 }
 
 .tabContent {
