@@ -1,0 +1,21 @@
+{
+  "wl": {
+    "apiKey": "40RyMkT0ZD",
+    "rbl": [ 4641, 4650, 2167, 2193, 2204, 2157, 1199, 4439, 4440 ],
+    "maxDepartures": 4
+
+  },
+  "oebb": [
+    "http://fahrplan.oebb.at/bin/stboard.exe/dn?L=vs_scotty.vs_liveticker&evaId=1292002&boardType=dep&productsFilter=1111110100111111&dirInput=&tickerID=dep&start=yes&eqstops=true&showJourneys=15&additionalTime=0",
+    "http://fahrplan.oebb.at/bin/stboard.exe/dn?L=vs_scotty.vs_liveticker&evaId=1290401&boardType=dep&productsFilter=1111110100111111&dirInput=&tickerID=dep&start=yes&eqstops=true&showJourneys=15&additionalTime=20",
+    "http://fahrplan.oebb.at/bin/stboard.exe/dn?L=vs_scotty.vs_liveticker&evaId=1290401&boardType=arr&productsFilter=1111110100111111&dirInput=&tickerID=arr&start=yes&eqstops=true&showJourneys=15&additionalTime=20"
+  ],
+  "weather": "http://www.yr.no/place/Austria/Vienna/Vienna/meteogram.png",
+  "cbw": [ 2002, 307, 906, 305],
+  "webcam": {
+    "host": "pi@192.168.1.204",
+    "previewUrl": "http://192.168.1.236/tmpfs/auto.jpg",
+    "user": "root",
+    "password": "root"
+  }
+}

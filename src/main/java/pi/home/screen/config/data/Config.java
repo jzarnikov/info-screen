@@ -12,4 +12,6 @@ public class Config {
     public String weather = "";
 
     public List<Integer> cbw = new ArrayList<>();
+
+    public WebcamConfig webcam = new WebcamConfig();
 }

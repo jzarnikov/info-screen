@@ -12,10 +12,10 @@
 
 .tabLink {
     float: left;
-    width: 62px;
+    width: 54px;
     height: 40px;
     text-align: center;
-    font-size: 1.5em;
+    font-size: 1.4em;
     background-color: #3a3a3a;
     color: #d1d1d1;
     padding: 7px 0 7px 0;
@@ -90,4 +90,16 @@ table.content td.filler {
 
 body {
     background-color: black;
+}
+
+
+.webcamPreview {
+    witdh: 480px;
+    height: 270px;
+}
+
+.webcamControl {
+    color: #d1d1d1;
+    font-size: 1.4em;
+    padding: 0.25em 0.5em;
 }
